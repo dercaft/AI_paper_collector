@@ -6,7 +6,8 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-
+import scrapy
+from spider_conference.items import PaperItem
 
 class SpiderConferencePipeline:
     def process_item(self, item, spider):

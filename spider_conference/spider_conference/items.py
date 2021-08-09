@@ -11,8 +11,10 @@ class SpiderConferenceItem(scrapy.Item):
     # name = scrapy.Field()
     pass
 class PaperItem(scrapy.Item):
-    name=scrapy.Field()
+    title=scrapy.Field()
+    conference=scrapy.Field()
+    year=scrapy.Field()
+    abstract=scrapy.Field()
     pdf_link=scrapy.Field()
     abstract_link=scrapy.Field()
-    abstract=scrapy.Field()
     infos=scrapy.Field()
