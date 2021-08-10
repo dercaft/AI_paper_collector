@@ -1,5 +1,6 @@
 
 import os,sys,csv
+import functools
 import scrapy
 from spider_conference.items import PaperItem
 
@@ -65,27 +66,28 @@ class ICLR_Spider(scrapy.Spider):
         pass
 class ICML_Spider(scrapy.Spider):
     name="ICML"
-    start_urls=(
-            "http://proceedings.mlr.press/v80/",
-            "http://proceedings.mlr.press/v97/",
-            "http://proceedings.mlr.press/v119/",
-            "http://proceedings.mlr.press/v139/",
-        )
     def start_requests(self):
         recs=get_urls(self.name)
-        
+        for rec in recs:
+            info={"conference":rec[1],"year":rec[2]}
+            url=rec[3]
+            parser=functools.partial(self.parser,info=info)
+            yield scrapy.Request(url=url, callback=parser)
     def parse_abs(self,response):
         item=response.meta['item']
         abstract=response.xpath("//div[@id='abstract']/text()").extract_first()
         item['abstract']=abstract
         yield item
-    def parser(self,response):
+    def parser(self,response, info):
         papers=response.css("div.paper")
         for paper in papers:
             item=PaperItem()
-            item["title"]=paper.css("p.title::text")
+            item["title"]=paper.xpath("p[@class='title']/text()").extract_first()
+            item["conference"]=info["conference"]
+            item["year"]=info["year"]
             link=paper.xpath('p[@class="links"]/a[contains(text(),"abs")]/@href').extract_first()
             item["abstract_link"]=link
+            item["pdf_link"]=paper.xpath('p[@class="links"]/a[contains(text(),"PDF")]/@href').extract_first()
             yield scrapy.Request(url=link,callback=self.parse_abs,meta={'item':item})
 
 class IJCAI_Spider(scrapy.Spider):

@@ -17,4 +17,3 @@ class PaperItem(scrapy.Item):
     abstract=scrapy.Field()
     pdf_link=scrapy.Field()
     abstract_link=scrapy.Field()
-    infos=scrapy.Field()
