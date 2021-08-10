@@ -1,16 +1,49 @@
 # AI_paper_collector
 A simple, lightweight, easy use pythonic AI Conference paper collector.
 ## Conference&Journals:
-- NIPS
-- CVPR
-- ICLR
+- [ ] ~~AAAI~~ : *Is PDF format*
+
+- [x] CVPR
+
+- [x] ICCV
+
+- [x] ECCV
+
+- [ ] ICLR : *Dynamic Website, hard to crawl*
+
+- [x] ICML
+
+- [x] IJCAI
+
+- [x] NIPS
+
 ## Environment:
+
 - Scrapy
 - [Peewee](https://github.com/coleifer/peewee) (ORM framework for SQLite)
+
+## How to Use
+
+First
+
+```shell
+
+```
+
+Second
+
+```shell
+
+```
+
+
+
 ## Structure:
-Use scrapy to get paper infos from denoted Conference urls, for example title, abstract, etc.
-Save these infos into a lightweight sql, sqlite3.
-Offer tools to get papers we want from database, convert into excel format or anything we want.
+
+- Use scrapy to get paper infos from denoted Conference urls, for example title, abstract, etc.
+- Save these infos into a lightweight sql, sqlite3.
+- Offer tools to get papers we want from database, convert into excel format or anything we want.
+
 ## Develop Resources
 ### Spider
 - [Xpath入门教程](https://www.runoob.com/xpath/xpath-nodes.html)
@@ -19,5 +52,6 @@ Offer tools to get papers we want from database, convert into excel format or an
 - [常用库汇总](https://zhuanlan.zhihu.com/p/81944559)
 ### SQL
 ### Light Website
+
 ## Future
 Create a tiny website, with UI and some tools.
