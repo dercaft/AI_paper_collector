@@ -5,7 +5,14 @@
 
 import scrapy
 
-
+HEAD=[
+    "title",
+    "conference",
+    "year",
+    "abstract",
+    "abstract_link",
+    "pdf_link",
+]
 class SpiderConferenceItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()

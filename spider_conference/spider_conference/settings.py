@@ -50,9 +50,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'spider_conference.middlewares.SpiderConferenceDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   # 'spider_conference.middlewares.SpiderConferenceDownloaderMiddleware': 543,
+   'scrapy.downloadermiddlewares.retry.RetryMiddleware': 80,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -65,7 +66,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
    'spider_conference.pipelines.SpiderConferencePipeline': 300,
 }
-
+LOG_LEVEL='INFO'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
