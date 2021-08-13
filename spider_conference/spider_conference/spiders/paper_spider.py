@@ -13,7 +13,7 @@ def get_urls(name):
     recs=[]
     path=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     path=os.path.dirname(os.path.dirname(path))
-    csv_file=os.path.join(path,"顶会网址.csv")
+    csv_file=os.path.join(path,"Conference_website.csv")
     with open(csv_file,'r',encoding="utf-8") as f:
         read=csv.reader(f)
         for item in read:
