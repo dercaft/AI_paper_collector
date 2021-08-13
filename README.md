@@ -11,6 +11,8 @@ A simple, lightweight, easy use pythonic AI Conference paper collector.
 
 - [ ] ICLR : *Dynamic Website, hard to crawl*
 
+  > This repository can crawl ICLR's papers, we can merge this repo into this Project. [evanzd/ICLR2021-OpenReviewData](https://github.com/evanzd/ICLR2021-OpenReviewData)
+
 - [x] ICML
 
 - [x] IJCAI

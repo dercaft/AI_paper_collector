@@ -12,8 +12,9 @@ from spider_conference.items import PaperItem, HEAD
 
 class SpiderConferencePipeline:
     file=None
-    def open_spider(self,spider):
-        self.file=open("./test.csv", 'w', encoding="utf-8")
+    def open_spider(self,spider:scrapy.Spider):
+        filename=str(spider.name)+".csv"
+        self.file=open("../"+filename, 'w', encoding="utf-8")
         self.writer=csv.DictWriter(self.file,fieldnames=HEAD) 
         self.writer.writeheader()
     def close_spider(self,spider):
