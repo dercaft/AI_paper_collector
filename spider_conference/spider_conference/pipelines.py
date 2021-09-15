@@ -9,9 +9,9 @@ import csv
 from itemadapter import ItemAdapter
 import scrapy
 from spider_conference.items import PaperItem, HEAD
-
+# from database import Paper
 class SpiderConferencePipeline:
-    file=None
+    file=None        
     def open_spider(self,spider:scrapy.Spider):
         filename=str(spider.name)+".csv"
         self.file=open("../"+filename, 'w', encoding="utf-8")
@@ -22,3 +22,5 @@ class SpiderConferencePipeline:
     def process_item(self, item, spider):
         self.writer.writerow(item)
         return item
+# class DatabasePipeline:
+#     pass

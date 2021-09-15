@@ -1,6 +1,14 @@
 # Project Specified
 */test.csv
-
+default.csv
+AAAI.csv
+CVPR.csv
+ECCV.csv
+ICCV.csv
+ICLR.csv
+ICML.csv
+IJCAI.csv
+NIPS.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
