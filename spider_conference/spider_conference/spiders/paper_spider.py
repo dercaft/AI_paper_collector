@@ -36,7 +36,10 @@ class AAAI_Spider(Meta_Spider):
     def old_paper(self,response):
         item=response.meta['item']
         # abstract=response.xpath("//*[@id='abstract']/div/text()").extract_first().strip("\"")
-        abstract=" ".join(response.xpath('//*[@id="abstract"]/div/text()').getall())
+        # abstract=response.xpath('//*[@id="abstract"]/div/text()').getall()
+        # abstract=". ".join([i.strip().replace('\n', '') for i in abstract])
+        abstract=response.xpath("//meta[@name='DC.Description']/@content").getall()
+        abstract=". ".join([i.strip().replace('\n', '') for i in abstract])
         item["abstract"]=abstract
         a=response.xpath("//*[@id='paper']/a/@href").extract_first()
         item["pdf_link"]=parse.urljoin(response.url,a)
@@ -47,10 +50,9 @@ class AAAI_Spider(Meta_Spider):
         
     def new_paper(self,response):
         item=response.meta['item']
-        abstract=response.xpath("//section[@class=contains(@class,'abstract')]/text()").getall()
-        for i in range(len(abstract)):
-            abstract[i]=abstract[i].strip("\"")
-        abstract=" ".join(abstract)
+        # abstract=response.xpath("//section[@class=contains(@class,'abstract')]/text()").getall()
+        abstract=response.xpath("//meta[@name='DC.Description']/@content").getall()
+        abstract=". ".join([i.strip().replace('\n', '') for i in abstract])
         abstract=abstract.replace("Abstract", "").strip()
         item["abstract"]=abstract
         if dict_check(item):
@@ -139,7 +141,9 @@ class ECCV_Spider(Meta_Spider):
         item=response.meta['item']
         u=response.xpath("//a[contains(text(),'pdf')]/@href").extract_first()
         item["pdf_link"]=parse.urljoin(response.url,u)
-        abstract=response.xpath("//div[@id='abstract']")[0].xpath("string(.)").extract_first().strip()
+        # abstract=response.xpath("//div[@id='abstract']")[0].xpath("string(.)").extract_first().strip()
+        abstract=response.xpath("//div[@id='abstract']/text()").getall()
+        abstract=". ".join([i.strip().replace('\n','').replace('\"','') for i in abstract])
         item["abstract"]=abstract    
         yield item
     def get_item(self,response,paper,year):
@@ -183,8 +187,7 @@ class ICLR_Spider(Meta_Spider):
         from selenium.webdriver.support.wait import WebDriverWait
         from urllib import parse
         ROOT=response.url
-        # INCLUDE=["oral-presentations","spotlight-presentations","poster-presentations"]
-        INCLUDE=self.INCLUDE_TAB[response.meta["year"]]
+        INCLUDE=self.INCLUDE_TAB.get(response.meta["year"],[])
         # ROOT='https://openreview.net/group?id=ICLR.cc/2021/Conference'
         options = webdriver.ChromeOptions()
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -197,22 +200,22 @@ class ICLR_Spider(Meta_Spider):
         driver.maximize_window()
         # cond = EC.presence_of_element_located((By.XPATH, '//*[@id="oral-presentations"]'))
         # cond = EC.presence_of_element_located((By.XPATH, '//*[@class="tabs-container"]'))
-        cond = EC.presence_of_element_located((By.XPATH, '//*[@id="notes"]'))
+        cond = EC.presence_of_element_located((By.XPATH, '//*[@id="notes"]/div/ul[@role="tablist"]'))
         WebDriverWait(driver, 60).until(cond)
         # page = driver.page_source
         # print(page)
         # WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,'//ul[@role="tablist"]/li/a')))
-        tabs = driver.find_elements_by_xpath('//ul[@role="tablist"]/li/a')
+        tabs = driver.find_elements_by_xpath('//*[@id="notes"]/div/ul[@role="tablist"]/li/a')
         # print("TABS: ",len(tabs))
+        print("*"*20)
+        print("YEAR: ", response.meta["year"])
         for i,tab in enumerate(tabs):
             # old=tab
             # tab=tab.find_element_by_xpath('./a')
             # print("TAB: ",tab)
             link=tab.get_attribute("href")
             name=link.split("#")[-1]
-            print("*"*20)
-            print(i,type(tab))
-            print(link)
+            print(i,link)
             print(name)
             if not name in INCLUDE: continue
             driver.execute_script("var q=document.documentElement.scrollTop=0")
@@ -224,7 +227,6 @@ class ICLR_Spider(Meta_Spider):
             time.sleep(0.2)
             papers=driver.find_elements_by_xpath(paper_path)
             print("LENGTH: ",len(papers))
-            print("*"*20)
             for i,paper in enumerate(papers):
                 # if i>2: break
                 title=paper.find_element_by_xpath("./h4/a[1]").text.strip()
@@ -251,14 +253,17 @@ class ICLR_Spider(Meta_Spider):
                 item["abstract_link"]=abstract_link
                 item["pdf_link"]=pdf_link
                 yield item
-                pass
+            #     pass
+        print("*"*20)
         driver.close()        
         pass
 class ICML_Spider(Meta_Spider):
     name="ICML"
     def parse_abs(self, response):
         item=response.meta['item']
-        abstract=response.xpath("//div[@id='abstract']")[0].xpath("string(.)").extract_first().strip()
+        # abstract=response.xpath("//div[@id='abstract']")[0].xpath("string(.)").extract_first().strip()
+        abstract=response.xpath("//div[@id='abstract']/text()").getall()
+        abstract=". ".join([i.strip().replace('\n', '') for i in abstract])
         item['abstract']=abstract
         yield item
     def parser(self, response):
@@ -277,8 +282,10 @@ class IJCAI_Spider(Meta_Spider):
     name="IJCAI"
     def parse_abs(self,response):
         item=response.meta['item']
-        item["abstract"]=response.xpath("//*[@id='block-system-main']/div/div/div[3]/div[1]")[0]\
-            .xpath("string(.)").extract_first().strip()
+        # item["abstract"]=response.xpath("//*[@id='block-system-main']/div/div/div[3]/div[1]")[0]\
+        #     .xpath("string(.)").extract_first().strip()
+        abstract=response.xpath('//*[@id="block-system-main"]/div/div/div[3]/div[1]/text()').getall()
+        item["abstract"]=". ".join([i.strip().replace('\n', '') for i in abstract])
         yield item
     def parser(self,response):
         papers=response.xpath("//div[@class='paper_wrapper']")
