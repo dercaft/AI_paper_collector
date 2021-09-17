@@ -1,28 +1,28 @@
-﻿序号,会议名,年份,论文列表网址,备注,External,录取数,,
-4,AAAI,2018,https://aaai.org/Library/AAAI/aaai18contents.php,整页,https://ojs.aaai.org/index.php/AAAI/issue/archive/,938,,Proceedings of the AAAI Conference on Artificial Intelligence
-3,AAAI,2019,https://aaai.org/Library/AAAI/aaai19contents.php,整页,上格是AAAI的Archive网址，包括过去几年的会议论文，,1150,,
-2,AAAI,2020,https://aaai.org/Library/AAAI/aaai20contents.php,分Tracks,而且2120两年的论文集都分很多个单页，因此不在此进行区分,1591,,
-1,AAAI,2021,https://aaai.org/Library/AAAI/aaai21contents.php,分Tracks,统一放到代码中处理,1692,,
-8,CVPR,2018,https://openaccess.thecvf.com/CVPR2018,Main conference 无法访问,,979,,
-7,CVPR,2019,https://openaccess.thecvf.com/CVPR2019,0,,1300,,
-6,CVPR,2020,https://openaccess.thecvf.com/CVPR2020,0,,1470,,
-5,CVPR,2021,https://openaccess.thecvf.com/CVPR2021,分成12个部分,,1663,,
-10,ECCV,2020.2018,https://www.ecva.net/papers.php, 含有2020和2018两年的论文,776,1361,,
-15,ICCV,2019,https://openaccess.thecvf.com/ICCV2019,0,,1075,,
-13,ICCV,2021,Not published,0,,1617,,
-20,ICLR,2018,https://openreview.net/group?id=ICLR.cc/2018/Conference,0,,427,,
-19,ICLR,2019,https://openreview.net/group?id=ICLR.cc/2019/Conference,0,,500,,
-18,ICLR,2020,https://openreview.net/group?id=ICLR.cc/2020/Conference,0,,687,,
-17,ICLR,2021,https://openreview.net/group?id=ICLR.cc/2021/Conference,0,,860,,
-24,ICML,2018,http://proceedings.mlr.press/v80/,0,,621,,
-23,ICML,2019,http://proceedings.mlr.press/v97/,0,,774,,
-22,ICML,2020,http://proceedings.mlr.press/v119/,0,,1088,,
-21,ICML,2021,http://proceedings.mlr.press/v139/,0,,1184,,
-28,IJCAI,2018,https://www.ijcai.org/proceedings/2018/,0,,710,,
-27,IJCAI,2019,https://www.ijcai.org/proceedings/2019/,0,,850,,
-26,IJCAI,2020,https://www.ijcai.org/proceedings/2020/,0,,592,,
-25,IJCAI,2021,Not published,0,,587,,
-32,NIPS,2018,https://proceedings.neurips.cc/paper/2018,0,,1011,,
-31,NIPS,2019,https://proceedings.neurips.cc/paper/2019,0,,1428,,
-30,NIPS,2020,https://proceedings.neurips.cc/paper/2020,0,,1900,,
-29,NIPS,2021,Not published,0,,,,
+﻿序号,会议名,年份,论文列表网址,备注,External,录取数
+4,AAAI,2018,https://aaai.org/Library/AAAI/aaai18contents.php,整页,https://ojs.aaai.org/index.php/AAAI/issue/archive/,938
+3,AAAI,2019,https://aaai.org/Library/AAAI/aaai19contents.php,整页,上格是AAAI的Archive网址，包括过去几年的会议论文，,1150
+2,AAAI,2020,https://aaai.org/Library/AAAI/aaai20contents.php,分Tracks,而且2120两年的论文集都分很多个单页，因此不在此进行区分,1591
+1,AAAI,2021,https://aaai.org/Library/AAAI/aaai21contents.php,分Tracks,统一放到代码中处理,1692
+8,CVPR,2018,https://openaccess.thecvf.com/CVPR2018,Main conference 无法访问,,979
+7,CVPR,2019,https://openaccess.thecvf.com/CVPR2019,0,,1300
+6,CVPR,2020,https://openaccess.thecvf.com/CVPR2020,0,,1470
+5,CVPR,2021,https://openaccess.thecvf.com/CVPR2021,分成12个部分,,1663
+10,ECCV,2020.2018,https://www.ecva.net/papers.php, 含有2020和2018两年的论文,776,1361
+15,ICCV,2019,https://openaccess.thecvf.com/ICCV2019,0,,1075
+13,ICCV,2021,Not published,0,,1617
+20,ICLR,2018,https://openreview.net/group?id=ICLR.cc/2018/Conference,0,,427
+19,ICLR,2019,https://openreview.net/group?id=ICLR.cc/2019/Conference,0,,500
+18,ICLR,2020,https://openreview.net/group?id=ICLR.cc/2020/Conference,0,,687
+17,ICLR,2021,https://openreview.net/group?id=ICLR.cc/2021/Conference,0,,860
+24,ICML,2018,http://proceedings.mlr.press/v80/,0,,621
+23,ICML,2019,http://proceedings.mlr.press/v97/,0,,774
+22,ICML,2020,http://proceedings.mlr.press/v119/,0,,1088
+21,ICML,2021,http://proceedings.mlr.press/v139/,0,,1184
+28,IJCAI,2018,https://www.ijcai.org/proceedings/2018/,0,,710
+27,IJCAI,2019,https://www.ijcai.org/proceedings/2019/,0,,850
+26,IJCAI,2020,https://www.ijcai.org/proceedings/2020/,0,,592
+25,IJCAI,2021,Not published,0,,587
+32,NIPS,2018,https://proceedings.neurips.cc/paper/2018,0,,1011
+31,NIPS,2019,https://proceedings.neurips.cc/paper/2019,0,,1428
+30,NIPS,2020,https://proceedings.neurips.cc/paper/2020,0,,1900
+29,NIPS,2021,Not published,0,,
