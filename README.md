@@ -11,6 +11,14 @@ A simple, lightweight, easy use pythonic AI Conference paper collector.
 - [x] IJCAI
 - [x] NIPS
 
+### Link of Paper Collections 
+
+We offer the result of spider, including 27151 papers, formatting as Excel file `Collector.xlsx`( file size ~15MB).
+
+[Google Drive](https://docs.google.com/spreadsheets/d/1PZnVlxZ59dF5QS8Y2QLhc6IcwyshQwYP/edit?usp=sharing&ouid=109292745279062051342&rtpof=true&sd=true)
+
+[BaiduYun](https://pan.baidu.com/s/16Nz4zJlqVFKBjCGaDmr5lw) 提取码：yecv
+
 ## Environment:
 
 - Scrapy
@@ -71,7 +79,7 @@ This chapter records resources for developing a spider program.
 ### SQL&SQL ORM
 ### Website
 
-## BUG
+## BUG?
 
 - Abstract in two record in ECCV.csv is spliced into multiple lines, need manual correction. 
 
