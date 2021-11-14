@@ -94,6 +94,7 @@ This chapter records resources for developing a spider program.
   ```
 
   to see these two bad records.
+- AAAI collect over 1000 more records than published, indicating that some records are splited in to multiple rows.
 
 ## Future
 - Finish all listed conferences' spider
