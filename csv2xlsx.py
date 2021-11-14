@@ -15,8 +15,9 @@ conferences=["AAAI",
 "NIPS",]
 
 workbook=Workbook("Collector.xlsx")
-
-for con in conferences:
+total=workbook.add_worksheet("Total")
+count=0
+for i,con in enumerate(conferences):
     sheet=workbook.add_worksheet(con)
     papers=[]
     print("NAME: ",con)
@@ -27,6 +28,8 @@ for con in conferences:
                 if not row or not len(row[0]): continue
                 for c,cell in enumerate(row):
                     sheet.write(r,c,cell)
+                    total.write(count,c,cell)
+                count+=1
         except BaseException as e:
             print("ERROR in {},{}: {}".format(r,c,repr(e)))
 workbook.close()
