@@ -1,5 +1,19 @@
 # AI_paper_collector
 A simple, lightweight, easy use pythonic AI Conference paper collector.
+## too long to read:
+Open Manual_total.xlsx, all crawled papers are listed in there.
+### Guidence for effcient search in EXCEL:
+- [Tutorial of Excel Advance Filter](https://support.microsoft.com/en-us/office/filter-by-using-advanced-criteria-4c9222fe-8529-4cd7-a898-3f16abdff32b)
+- [百度知道](https://jingyan.baidu.com/article/295430f1e438be0c7e0050e9.html)
+
+```
+与：条件在同一行
+或： 条件在不同行
+不包含： <>*包含字符*
+包含： *包含字符* 
+注意：条件不加引号
+```
+
 ## Eight Conference&Journals 2018-2021:
 - [x] AAAI
 - [x] CVPR
@@ -11,21 +25,13 @@ A simple, lightweight, easy use pythonic AI Conference paper collector.
 - [x] IJCAI
 - [x] NIPS
 
-### Link of Paper Collections 
-
-We offer the result of spider, including 27151 papers, formatting as Excel file `Collector.xlsx`( file size ~15MB).
-
-[Google Drive](https://docs.google.com/spreadsheets/d/1PZnVlxZ59dF5QS8Y2QLhc6IcwyshQwYP/edit?usp=sharing&ouid=109292745279062051342&rtpof=true&sd=true)
-
-[BaiduYun](https://pan.baidu.com/s/16Nz4zJlqVFKBjCGaDmr5lw) 提取码：yecv
-
 ## Environment:
 
 - Scrapy
 - Selenium
 - ~~[Peewee](https://github.com/coleifer/peewee) (ORM framework for SQLite)~~
 
-## How to Use
+## How to Run
 
 ### One Command to get all
 
