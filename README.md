@@ -1,6 +1,6 @@
 # AI_paper_collector
 A simple, lightweight, easy use pythonic AI Conference paper collector.
-## too long to read:
+## Too long to read:
 Open Manual_total.xlsx, all crawled papers are listed in there.
 ### Guidence for effcient search in EXCEL:
 - [Tutorial of Excel Advance Filter](https://support.microsoft.com/en-us/office/filter-by-using-advanced-criteria-4c9222fe-8529-4cd7-a898-3f16abdff32b)
@@ -14,16 +14,28 @@ Open Manual_total.xlsx, all crawled papers are listed in there.
 注意：条件不加引号
 ```
 
-## Eight Conference&Journals 2018-2021:
-- [x] AAAI
-- [x] CVPR
-- [x] ICCV
-- [x] ECCV
-- [x] ICLR 
+## Collected Conferences& Journals
+### Conferences
 
-- [x] ICML
-- [x] IJCAI
-- [x] NIPS
+| Conferences    | 2018    | 2019    | 2020    | 2021    | 2022 |
+| -------------- | ------- | ------- | ------- | ------- | ---- |
+| AAAI &#X1F41B; | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| CVPR           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| ICCV           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| ECCV           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| ICLR           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| ICML           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| IJCAI          | &#9745; | &#9745; | &#9745; | &#9745; |      |
+| NIPS           | &#9745; | &#9745; | &#9745; | &#9745; |      |
+|                |         |         |         |         |      |
+
+### Journals
+
+| Journals |      |      |      |
+| -------- | ---- | ---- | ---- |
+| AI       |      |      |      |
+| TPAMI    |      |      |      |
+| TNN      |      |      |      |
 
 ## Environment:
 
@@ -58,7 +70,7 @@ you can find <CONFERENCE_NAME> in crawl.sh
 
 ### CSV to XLSX
 
-go to project path, run:
+After collect all conferences, go to project path, run:
 
 ```
 python csv2xlsx.py
@@ -100,7 +112,18 @@ This chapter records resources for developing a spider program.
   ```
 
   to see these two bad records.
-- AAAI collect over 1000 more records than published, indicating that some records are splited in to multiple rows.
+
+- AAAI: collect over 1000 more records than published, indicating that some records are splited in to multiple rows.
+
+- NIPS: when write into csv file, there is some records' chaos.
+
+  ![image-20211117140907657](README.assets/image-20211117140907657.png)
+
+  - Possible Problem:
+
+    Excel encoding should be saved and opened in UTF-8 encoding.
+
+     Content of these record make an error when opening the CSV format file.
 
 ## Future
 - Finish all listed conferences' spider

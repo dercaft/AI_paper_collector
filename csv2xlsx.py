@@ -27,7 +27,7 @@ for i,con in enumerate(conferences):
             for r,row in enumerate(reader):
                 if not row or not len(row[0]): continue
                 for c,cell in enumerate(row):
-                    sheet.write(r,c,cell)
+                    sheet.write(r,c,cell.replace("\n",""))
                     total.write(count,c,cell)
                 count+=1
         except BaseException as e:
